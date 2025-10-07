@@ -88,4 +88,12 @@ public class ClienteService {
     public boolean clienteExiste(Long id) {
         return clienteRepository.existsById(id);
     }
+    
+    public void deleteCliente(Long id) {
+        if (!clienteRepository.existsById(id)) {
+            throw new RuntimeException("Cliente não encontrado com ID: " + id);
+        }
+        
+        clienteRepository.deleteById(id);
+    }
 }

@@ -62,4 +62,15 @@ public class ClienteController {
                 .body("Erro ao atualizar cliente: " + e.getMessage());
         }
     }
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarCliente(@PathVariable Long id) {
+        try {
+            clienteService.deleteCliente(id);
+            return ResponseEntity.ok("Cliente deletado com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Erro ao deletar cliente: " + e.getMessage());
+        }
+    }
 }

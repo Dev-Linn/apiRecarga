@@ -35,7 +35,6 @@ public class RecargaCreateDTO {
         this.dadosPagamento = dadosPagamento;
     }
     
-    // Getters e Setters
     public Long getClienteId() { return clienteId; }
     public void setClienteId(Long clienteId) { this.clienteId = clienteId; }
     

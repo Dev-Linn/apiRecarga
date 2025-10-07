@@ -30,16 +30,15 @@ public class Recarga {
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal valor;
     
-    // Dados de pagamento - pode usar método cadastrado ou dados diretos
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "metodo_pagamento_id")
     private MetodoPagamento metodoPagamento;
     
     @Column(name = "tipo_pagamento", nullable = false)
-    private String tipoPagamento; // CARTÃO, PIX, BOLETO (para compatibilidade)
+    private String tipoPagamento;
     
     @Column(name = "dados_pagamento", length = 500)
-    private String dadosPagamento; // JSON com dados do cartão/PIX (para compatibilidade)
+    private String dadosPagamento;
     
     @NotNull(message = "Status é obrigatório")
     @Enumerated(EnumType.STRING)
@@ -107,7 +106,6 @@ public class Recarga {
         return status == StatusRecarga.PENDENTE || status == StatusRecarga.PROCESSANDO;
     }
     
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     

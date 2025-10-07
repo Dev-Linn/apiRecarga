@@ -21,20 +21,20 @@ public class MetodoPagamento {
     
     @NotBlank(message = "Tipo de pagamento é obrigatório")
     @Column(name = "tipo_pagamento", nullable = false)
-    private String tipoPagamento; // CARTAO_CREDITO, PIX, BOLETO
+    private String tipoPagamento;
     
     @NotBlank(message = "Descrição é obrigatório")
     @Size(max = 100, message = "Descrição deve ter no máximo 100 caracteres")
     @Column(nullable = false, length = 100)
-    private String descricao; // "Cartão Visa **** 1234"
+    private String descricao;
     
     @NotNull(message = "Dados do pagamento são obrigatórios")
     @Size(max = 1000, message = "Dados devem ter no máximo 1000 caracteres")
     @Column(name = "dados_pagamento", nullable = false, length = 1000)
-    private String dadosPagamento; // JSON com dados específicos
+    private String dadosPagamento;
     
     @Column(name = "padrao")
-    private Boolean padrao = false; // Método padrão do cliente
+    private Boolean padrao = false;
     
     @Column(name = "ativo")
     private Boolean ativo = true;
@@ -65,7 +65,6 @@ public class MetodoPagamento {
         dataAtualizacao = LocalDateTime.now();
     }
     
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     
